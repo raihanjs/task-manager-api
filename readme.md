@@ -10,7 +10,7 @@
 8. Write Model Properties -- Done
 9. Registration API -- Done
 10. Login API -- Done
-11. ProfileDetails API
+11. ProfileDetails API -- Done
 12. ProfileUpdate API
 13. Email Verify API
 14. Code Verify API

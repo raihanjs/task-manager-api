@@ -9,9 +9,9 @@ router.post("/registration", UserController.Registration);
 // Login User
 router.post("/login", UserController.Login);
 // Profile Details
-router.get("/profiledetails", UserController.Profiledetails);
+router.get("/profiledetails", AuthMiddleware, UserController.Profiledetails);
 // Profile Update
-router.post("/profileupdate", UserController.ProfileUpdate);
+router.post("/profileupdate", AuthMiddleware, UserController.ProfileUpdate);
 // Email Verify
 router.get("/emailverify", UserController.EmailVerify);
 // Code Verify
@@ -21,16 +21,17 @@ router.post("/resetpassword", UserController.ResetPassword);
 
 // Task Controller
 import * as TaskController from "../app/controllers/TaskController.js";
+import AuthMiddleware from "../app/middlewares/AuthMiddleware.js";
 
 // ==========================================Create Task==========================================
-router.post("/createtask", TaskController.CreteTask);
+router.post("/createtask", AuthMiddleware, TaskController.CreteTask);
 // Update Task
-router.get("/updatetask", TaskController.UpdateTask);
+router.get("/updatetask", AuthMiddleware, TaskController.UpdateTask);
 // Delete Task
-router.delete("/deletetask", TaskController.DeleteTask);
+router.delete("/deletetask", AuthMiddleware, TaskController.DeleteTask);
 // Count Task
-router.get("/counttask", TaskController.CountTask);
+router.get("/counttask", AuthMiddleware, TaskController.CountTask);
 // Task List By Status
-router.get("tasklistbystatus", TaskController.TaskListByStatus);
+router.get("tasklistbystatus", AuthMiddleware, TaskController.TaskListByStatus);
 
 export default router;
