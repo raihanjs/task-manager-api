@@ -31,6 +31,16 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+// Database Connection
+mongoose
+  .connect(DATABASE, { autoIndex: true })
+  .then(() => {
+    console.log("MongoDB Connected");
+  })
+  .catch(() => {
+    console.log("MongoDB Disconnected");
+  });
+
 // Routing Configuration
 app.use("/api", router);
 

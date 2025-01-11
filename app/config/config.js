@@ -1,9 +1,9 @@
 export const PORT = 5000;
 
 export const DATABASE =
-  "mongodb+srv://admin:Admin905@cluster0.bhifpq3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://admin:Admin905@cluster0.bhifpq3.mongodb.net/taskmanager?retryWrites=true&w=majority&appName=Cluster0";
 
-export const JWT_KEY = "";
+export const JWT_KEY = "MONGODB123?#";
 export const JWT_EXPIRE_TIME = 60 * 60 * 24 * 30;
 
 export const EMAIL_HOST = "mail.teamrabbil.com";
