@@ -7,7 +7,7 @@
 5. PostMan Initial Config -- Done
 6. Email Credential Config -- Done
 7. Token Encode Decode Config -- Done
-8. Write Model Properties
+8. Write Model Properties -- Done
 9. Registration API
 10. Login API
 11. ProfileDetails API
