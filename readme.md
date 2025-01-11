@@ -4,8 +4,8 @@
 2. Project Package -- Done
 3. Route Config -- Done
 4. App.js Config -- Done
-5. PostMan Initial Config
-6. Email Credential Config
+5. PostMan Initial Config -- Done
+6. Email Credential Config -- Done
 7. Write Model Properties
 8. Registration API
 9. Login API

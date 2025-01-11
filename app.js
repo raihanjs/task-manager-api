@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import rateLimit from "express-rate-limit/dist";
+import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import mongoose from "mongoose";
 
