@@ -2,8 +2,8 @@
 
 1. Project File Structure -- Done
 2. Project Package -- Done
-3. Route Config
-4. App.js Config
+3. Route Config -- Done
+4. App.js Config -- Done
 5. PostMan Initial Config
 6. Email Credential Config
 7. Write Model Properties
