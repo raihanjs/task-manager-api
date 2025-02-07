@@ -25,11 +25,7 @@ export const Login = async (req, res) => {
     } else {
       // if user exist then Encode a Token
       let Token = TokenEncode(data["email"], data["_id"]);
-      return res.json({
-        status: "success",
-        token: Token,
-        message: "User Logged In",
-      });
+      return res.json({status: "success",token: Token,message: "User Logged In"});
     }
   } catch (err) {
     return res.json({ status: "fail", message: err.toString() });
@@ -52,10 +48,17 @@ export const Profiledetails = async (req, res) => {
 };
 
 export const ProfileUpdate = async (req, res) => {
-  return res.json({
-    status: "Success",
-    Message: "User Profile Updated Successfully",
-  });
+  try {
+    let reqBody = req.body;
+    let user_id = req.headers["user_id"];
+    await UserModel.updateOne({ _id: user_id }, reqBody);
+    return res.json({
+      status: "success",
+      message: "User profile updated successfully",
+    });
+  } catch (err) {
+    return res.json({ status: "fail", message: err.toString() });
+  }
 };
 
 export const EmailVerify = async (req, res) => {
