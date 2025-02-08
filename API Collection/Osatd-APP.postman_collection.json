@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "7fb708bb-a03a-4676-bd67-da66a9ca3454",
+		"name": "Osatd-APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32030612"
+	},
+	"item": [
+		{
+			"name": "Student-API",
+			"item": [
+				{
+					"name": "Add Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": 123,\r\n    \"Roll\": \"C3850\",\r\n    \"Class\": \"10th\",\r\n    \"Remarks\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/addstudent",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"addstudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task-Management-API",
+			"item": [
+				{
+					"name": "Tasks",
+					"item": [
+						{
+							"name": "All Task List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localhost}}/tasklist",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"tasklist"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Task Count",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoLmNvbm5vckBleGFtcGxlLmNvbSIsInVzZXJfaWQiOiI2N2E2MTI1MmM2OTgxNmNjYjdhYjIxZTIiLCJpYXQiOjE3Mzg5ODkwMzMsImV4cCI6MTc0MTU4MTAzM30.Vnoh9COEObYD-x88gYBbpEPB5kArL7jRe3AIEfxEgXY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{localhost}}/counttask",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"counttask"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Task",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1pY2hhZWwuc21pdGhAZXhhbXBsZS5jb20iLCJ1c2VyX2lkIjoiNjdhNjEyNDhjNjk4MTZjY2I3YWIyMWUwIiwiaWF0IjoxNzM4OTg5Mjg4LCJleHAiOjE3NDE1ODEyODh9.IfdRgodUdtpr1iqMDaLeLi8HHTny8CLIbzmpPlCXJT0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Test 5\",\r\n    \"description\": \"2 Demo testing\",\r\n    \"status\": \"New\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/createtask",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"createtask"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Task",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{localhost}}/deletetask/67a60186c69816ccb7ab21cc",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"deletetask",
+										"67a60186c69816ccb7ab21cc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Task By Status",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdHJpY2lhLm1pbGxlcjEyM0BleGFtcGxlLmNvbSIsInVzZXJfaWQiOiI2N2E2MTI1YWM2OTgxNmNjYjdhYjIxZTQiLCJpYXQiOjE3Mzg5NDM2NTksImV4cCI6MTc0MTUzNTY1OX0.tnvAhpJm8Ib3TUBOa0DAubMWvZBlAMK8_bs2fDC2xlU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{localhost}}/gettaskbystatus/New",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"gettaskbystatus",
+										"New"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Task",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcl9pZCI6IjY3YTYxMjVhYzY5ODE2Y2NiN2FiMjFlNCIsImlhdCI6MTczODkzNzA5NywiZXhwIjoxNzQxNTI5MDk3fQ.0XZEMRIsLytpA6lL7TSElrwAM1SLTJSoOa4UugQJKCY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/updatetask/67a60186c69816ccb7ab21cc/completed",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"updatetask",
+										"67a60186c69816ccb7ab21cc",
+										"completed"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "All Users List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{localhost}}/users",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registration",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"email\": \"john.doe@example.com\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"mobile\": \"01912345678\",\r\n    \"password\": \"password123\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/registration",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"registration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{    \r\n\"email\": \"michael.smith@example.com\",\r\n\"password\": \"michael123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/login",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"sarah.connor@example.com\",\r\n    \"code\": \"543231\",\r\n    \"password\": \"sarahpass\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/resetpassword",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"resetpassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Profile Details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{localhost}}/profiledetails",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"profiledetails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Profile update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoLmNvbm5vckBleGFtcGxlLmNvbSIsInVzZXJfaWQiOiI2N2E2MTI1MmM2OTgxNmNjYjdhYjIxZTIiLCJpYXQiOjE3Mzg5NDMxMjUsImV4cCI6MTc0MTUzNTEyNX0.QH_K6RVjEoanujRvB3m1zwQYsgAaKtZ4Zp-L_Dj_dV8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"sarah.connor@example.com\",\r\n  \"firstName\": \"Patricia\",\r\n  \"lastName\": \"Miller\",\r\n  \"mobile\": \"01910101123\",\r\n  \"password\": \"Head\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/profileupdate",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"profileupdate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "jwt",
+				"jwt": [
+					{
+						"key": "algorithm",
+						"value": "HS256",
+						"type": "string"
+					},
+					{
+						"key": "isSecretBase64Encoded",
+						"value": false,
+						"type": "boolean"
+					},
+					{
+						"key": "payload",
+						"value": "{}",
+						"type": "string"
+					},
+					{
+						"key": "addTokenTo",
+						"value": "header",
+						"type": "string"
+					},
+					{
+						"key": "headerPrefix",
+						"value": "Bearer",
+						"type": "string"
+					},
+					{
+						"key": "queryParamKey",
+						"value": "token",
+						"type": "string"
+					},
+					{
+						"key": "header",
+						"value": "{}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcl9pZCI6IjY3YTYxMjVhYzY5ODE2Y2NiN2FiMjFlNCIsImlhdCI6MTczODkzNzA5NywiZXhwIjoxNzQxNTI5MDk3fQ.0XZEMRIsLytpA6lL7TSElrwAM1SLTJSoOa4UugQJKCY",
+			"type": "string"
+		}
+	]
+}
