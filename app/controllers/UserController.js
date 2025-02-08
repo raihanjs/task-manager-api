@@ -1,4 +1,5 @@
 import UserModel from "../models/UserModel.js";
+import SendEmail from "../utility/EmailUtility.js";
 import { TokenEncode } from "../utility/TokenUtility.js";
 
 export const Registration = async (req, res) => {
@@ -11,7 +12,7 @@ export const Registration = async (req, res) => {
       Message: "User Registered Successfully",
     });
   } catch (err) {
-    return res.json({ status: "fail", message: err.toString() });
+    return res.json({ status: "failed", message: err.toString() });
   }
 };
 
@@ -62,17 +63,49 @@ export const ProfileUpdate = async (req, res) => {
 };
 
 export const EmailVerify = async (req, res) => {
-  return res.json({
-    status: "Success",
-    Message: "Email Verified Successfully",
-  });
+  try {
+    let email = req.params.email;
+
+    let data = await UserModel.findOne({email: email});
+
+    if(data === null){
+      return res.json({ status: "fail", message: "Email does not exist" });
+    }else{
+      let code = Math.floor(100000 + Math.random() * 900000);
+      let email = data['email'];
+      let emailtext = "Your Code is " + code; 
+      let emailSubject = "Task Manager Verification Code";
+      await SendEmail(email, emailtext, emailSubject);
+
+      await UserModel.updateOne({email: email}, {otp: code})
+      return res.json({
+        status: "Success",
+        Message: "Email Verification sent",
+      });
+    }
+
+  } catch (err) {
+    return res.json({ status: "fail", message: err.toString() });
+  }
+  
 };
 
 export const CodeVerify = async (req, res) => {
-  return res.json({
-    status: "Success",
-    Message: "Code Verified Successfully",
-  });
+
+  try{
+    let email = req.params.email;
+    let code = req.params.code;
+  
+    let data = UserModel.findOne({email: email, otp : code});
+  
+    if(data == null){
+      return res.json({status: "fail", message: "Wrong Verification Code"})
+    }else{
+      return res.json({status: "success", message: "Verification Success"});
+    }
+  }catch{
+
+  }
 };
 
 export const ResetPassword = async (req, res) => {
@@ -80,4 +113,20 @@ export const ResetPassword = async (req, res) => {
     status: "Success",
     Message: "Password Reset Successfull",
   });
+};
+
+
+export const AllUsers = async (req, res) => {
+  try {
+    let user_id = req.headers["user_id"];
+    let data = await UserModel.find();
+
+    return res.json({
+      status: "Success",
+      data: data,
+      Message: "User Profiledetails",
+    });
+  } catch (err) {
+    return res.json({ status: "fail", message: err.toString() });
+  }
 };

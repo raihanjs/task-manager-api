@@ -8,19 +8,22 @@ import * as UserController from "../app/controllers/UserController.js";
 router.post("/registration", UserController.Registration);
 router.post("/login", UserController.Login);
 router.get("/profiledetails", AuthMiddleware, UserController.Profiledetails);
-router.post("/profileupdate", AuthMiddleware, UserController.ProfileUpdate);
+router.put("/profileupdate", AuthMiddleware, UserController.ProfileUpdate);
 router.get("/emailverify", UserController.EmailVerify);
-router.post("/codeverify", UserController.CodeVerify);
+router.get("/users", AuthMiddleware, UserController.AllUsers);
 router.post("/resetpassword", UserController.ResetPassword);
+router.get("/codeverify/:email/:code", UserController.CodeVerify);
+router.get("/emailverify/:email", AuthMiddleware, UserController.AllUsers);
 
 
 // ==============================================================Create Task
 import * as TaskController from "../app/controllers/TaskController.js";
 
-router.post("/createtask", TaskController.CreteTask);
-router.post("/updatetask",TaskController.UpdateTask);
-router.delete("/deletetask", TaskController.DeleteTask);
-router.get("/counttask", TaskController.CountTask);
-router.get("tasklistbystatus", TaskController.TaskListByStatus);
+router.get("/taskcount", AuthMiddleware, TaskController.CreteTask);
+router.post("/createtask", AuthMiddleware, TaskController.CreteTask);
+router.put("/updatetask/:id/:status", AuthMiddleware, TaskController.UpdateTask);
+router.delete("/deletetask/:id",AuthMiddleware, TaskController.DeleteTask);
+router.get("/counttask", AuthMiddleware, TaskController.CountTask);
+router.get("/gettaskbystatus/:status",AuthMiddleware, TaskController.TaskListByStatus);
 
 export default router;

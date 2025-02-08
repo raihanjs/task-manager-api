@@ -15,11 +15,11 @@
 13. Email Verify API
 14. Code Verify API
 15. RESET Password API
-16. Create Task API
-17. Update Task API
-18. Delete Task API
-19. Task List By Status API
-20. Count Task API
+16. Create Task API -- Done
+17. Update Task API -- Done
+18. Delete Task API -- Done
+19. Task List By Status API -- Done
+20. Count Task API -- Failed
 
 ### SDLC - Software Development Lifecycle
 

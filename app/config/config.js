@@ -1,8 +1,7 @@
 export const PORT = 5000;
 
 export const DATABASE =
-  "mongodb+srv://oastad-app:EIGn0WL6x3v71PXk@cluster0.30fw9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
+  "mongodb+srv://oastad-app:y1a1r3lLOtnIbyW6@cluster0.30fw9.mongodb.net/task-management?retryWrites=true&w=majority&appName=Cluster0";
 export const JWT_KEY = "MONGODB123?#";
 export const JWT_EXPIRE_TIME = 60 * 60 * 24 * 30;
 

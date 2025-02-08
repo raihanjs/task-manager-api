@@ -2,7 +2,6 @@ import { TokenDecode } from "../utility/TokenUtility.js";
 
 export default (req, res, next) => {
   let token = req.headers["token"];
-  console.log(token);
 
   let decoded = TokenDecode(token);
   if (decoded === null) {
@@ -15,7 +14,7 @@ export default (req, res, next) => {
     // Add with request header
     req.headers.email = email;
     req.headers.user_id = user_id;
-
+     
     next();
   }
 };
